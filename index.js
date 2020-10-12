@@ -26,11 +26,12 @@ function processFirstItem(stringList, callback) {
 /* Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
- * 1. What is the difference between counter1 and counter2?
+ * 1. What is the difference between counter1 and counter2? Counter 1 keeps track of count; counter 2 starts from beginning everytime the function called;
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
  *
 */
 
@@ -43,7 +44,7 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
-
+console.log(counterMaker());
 // counter2 code
 let count = 0;
 
@@ -56,10 +57,15 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+   return num = Math.floor(Math.random()*3);
 
+}
+
+console.log(inning());
+function getInningScore(){
+  return score = Math.floor(Math.random()*3);
 }
 
 /* Task 3: finalScore()
@@ -76,11 +82,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
-
+function finalScore(callback,num){
+  let homescore = 0;
+  let awayscore = 0; 
+  for(let i = 0; i < num; i++){
+    let away = callback();
+    let home = callback();
+  homescore += home;
+  awayscore += away;
+  }
+return {Home: homescore, Away: awayscore};
 }
+console.log(finalScore(inning,9));
 
 /* Task 4: 
 
@@ -103,8 +117,10 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+// function scoreboard(callback1,callback2,num) {
+// for(let i = 0; i < num; i++){
+
+// }
+// }
 
 
