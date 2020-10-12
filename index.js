@@ -26,11 +26,13 @@ function processFirstItem(stringList, callback) {
 /* Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
- * 1. What is the difference between counter1 and counter2?
- * 
+ * 1. What is the difference between counter1 and counter2? 
+ * Counter 1 keeps track of count; counter 2 starts from beginning everytime the function called;
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter1 uses closure, I think that because it doesn't have variables outside of scope;
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * if we want to assign function to variable, that keeps track every time we call it ,we should use counter1
+ * If we want use count elsewhere in other function we should use counter2
  *
 */
 
@@ -52,15 +54,19 @@ function counter2() {
 }
 
 
+
 /* Task 2: inning() 
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+   return num = Math.floor(Math.random()*3);
 
 }
+
+console.log(inning());
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +82,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
-
+function finalScore(callback,num){
+  let homescore = 0;
+  let awayscore = 0; 
+  for(let i = 0; i < num; i++){
+    let away = callback();
+    let home = callback();
+  homescore += home;
+  awayscore += away;
+  }
+return {Home: homescore, Away: awayscore};
 }
+console.log(finalScore(inning,9));
 
 /* Task 4: 
 
@@ -102,9 +116,27 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+// function getInningScore(callback){
+// let score = callback();
+// return score;
+// } 
+function getInningScore(){
+  let score = Math.floor(Math.random()*3);
+  return score;
 }
+
+
+function scoreboard(callback1,callback2,num) {
+let awayteam = 0;
+let hometeam = 0;
+for(let i = 1; i <= num; i++){
+awayteam += callback1();
+hometeam += callback2();
+
+console.log(`${i}st inning: awayTeam ${awayteam} - ${hometeam} homeTeam`)
+}
+return;
+}
+scoreboard(inning,getInningScore,9);
 
 

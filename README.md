@@ -62,9 +62,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell?personalDice(){} -there is no variable outside of scope that then used inside.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? name is always the same but newRoll could change.
+c. What is the lexical scope of `newRoll`? return function{}
 
 ### Task 2c - Exit Ticket
 
